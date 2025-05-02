@@ -45,4 +45,31 @@ lvim.builtin.lualine.sections = {
   lualine_z = { "location" },
 }
 
+lvim.builtin.which_key.mappings.D = {
+  name = "Docker",
+  D = {
+    function()
+      local Terminal = require("toggleterm.terminal").Terminal
+      local lazydocker = Terminal:new {
+        cmd = "lazydocker",
+        hidden = true,
+        direction = "float",
+        float_opts = {
+          border = "none",
+          width = 100000,
+          height = 100000,
+          zindex = 200,
+        },
+        on_open = function(_)
+          vim.cmd "startinsert!"
+        end,
+        on_close = function(_) end,
+        count = 99,
+      }
+      lazydocker:toggle()
+    end,
+    "Lazydocker"
+  }
+}
+
 require("user.options")
