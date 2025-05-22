@@ -12,37 +12,14 @@ formatters.setup {
   }
 }
 
--- lvim.colorscheme = "nordic"
-lvim.colorscheme = "base16-gruvbox-dark-hard"
+lvim.colorscheme = "nordic"
 
 
 lvim.plugins = {
   {
-    "RRethy/nvim-base16",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme base16-gruvbox-dark-hard")
-      vim.o.background = "dark"
-
-      -- Optional tweaks to match your friend's config
-      local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
-      vim.api.nvim_set_hl(0, "Comment", bools)
-
-      local marked = vim.api.nvim_get_hl(0, { name = "PMenu" })
-      vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", {
-        fg = marked.fg,
-        bg = marked.bg,
-        ctermfg = marked.ctermfg,
-        ctermbg = marked.ctermbg,
-        bold = true,
-      })
-    end
-  },
-  {
     'AlexvZyl/nordic.nvim',
     lazy = false,
-    priority = 999,
+    priority = 1000,
     config = function()
       vim.opt.termguicolors = true
       vim.opt.background = "dark"
@@ -72,10 +49,12 @@ lvim.builtin.lualine.sections = {
     {
       "filename",
       path = 1, -- Show relative path
+      show_modified_status = true,
       symbols = {
-        modified = "●", -- symbol for modified files
-        readonly = "🔒", -- symbol for readonly files
+        modified = "[+]",
+        readonly = "[-]",
         unnamed = "[No Name]",
+        newfile = "[New]"
       },
     },
   },
