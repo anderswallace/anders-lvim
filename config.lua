@@ -9,6 +9,7 @@ formatters.setup {
   {
     name = "prettier",
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    args = { "--trailing-comma", "es5" },
   }
 }
 
@@ -37,6 +38,11 @@ lvim.plugins = {
       vim.cmd("colorscheme nordic")
     end
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {}
+  }
 }
 
 -- STATUSLINE (LUALINE) CONFIGURATION
