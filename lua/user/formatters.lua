@@ -6,3 +6,11 @@ formatters.setup {
     args = { "--trailing-comma", "es5" },
   }
 }
+
+require('lspconfig').gopls.setup({
+  settings = {
+    gopls = {
+      gofumpt = true
+    }
+  }
+})
